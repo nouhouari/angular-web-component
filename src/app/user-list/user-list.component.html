@@ -1,0 +1,8 @@
+<div *ngIf="page" class="userlist">
+    <p>Title: {{title}}</p>
+    <div class="pageInfo">page {{page.page}}/{{page.total_pages}}</div>
+    <div *ngFor="let user of page.data" (click)="onUserClicked(user)">
+       <app-user-list-item [user]="user"></app-user-list-item>
+       <br>
+    </div>
+</div>

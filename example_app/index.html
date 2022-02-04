@@ -1,0 +1,24 @@
+ <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Web Component Sample</title>
+      <base href="/">
+    </head>
+    <body>
+      <p>This is a sample web application using web component</p>
+      
+      <!-- This is a web element -->
+      <user-list title="This title is coming from the client side"></user-list>
+      
+      <script type="text/javascript" src="http://localhost:3002/user-list.js"></script>
+
+      <script>
+        const el = document.querySelector('user-list');
+        console.log(el);
+        el.addEventListener('onSelect', (event) => console.log( event.detail));
+      </script>
+    </body>
+    </html>
