@@ -6,19 +6,41 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>Web Component Sample</title>
       <base href="/">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
     </head>
     <body>
-      <p>This is a sample web application using web component</p>
+      <p >
+      <h2 style="text-align: center">This is a sample web application using web components from Angular and VueJs</h2>
+      </p>
       
-      <!-- This is a web element -->
-      <user-list title="This title is coming from the client side"></user-list>
+      <!-- This is a web element coming from Anugular -->
       
-      <script type="text/javascript" src="http://localhost:3002/user-list.js"></script>
+      <table style="width:100%">
+      <tr>
+        <td>
+          <user-list title="Title injected from parent page"></user-list>
+        </td>
+        <td>
+          <v-user id="userDetails" userid="2"></v-user>
+        </td>
+        <td>
+          <v-users></v-users> 
+        </td>
+
+      <tr>
+      </table>
+      <script type="text/javascript" src="http://localhost:3004/user-list.js"></script>
+      <script type="text/javascript" src="http://localhost:3000/v-users.js"></script>
+      <script type="text/javascript" src="http://localhost:3000/v-user.js"></script>
 
       <script>
         const el = document.querySelector('user-list');
+        const user = document.querySelector('v-user');
         console.log(el);
-        el.addEventListener('onSelect', (event) => console.log( event.detail));
+        el.addEventListener('onSelect', (event) => {
+          console.log( 'User selected: ' + event.detail.id);
+          user.setAttribute('userid', event.detail.id);
+        });
       </script>
     </body>
     </html>
