@@ -9,6 +9,7 @@ import { UserService } from '../services/user.service';
 })
 export class UserListComponent implements OnInit {
 
+  data: any;
   pageNumber: number = 0;
   page: UserPage;
 
@@ -38,5 +39,10 @@ export class UserListComponent implements OnInit {
   public onUserClicked(user: User){
     this.onSelect.emit(user);
     console.log('User is clicked = ' + user.id);
+  }
+
+  public save(){
+    console.log(this.data);
+    localStorage.setItem('DATA', this.data);
   }
 }

@@ -9,6 +9,7 @@ import { UserListComponent } from './user-list/user-list.component';
 // 1. Add the dependency and import the createCustomElement
 import { createCustomElement } from '@angular/elements';
 import { UserListItemComponent } from './user-list-item/user-list-item.component';
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserListItemComponent } from './user-list-item/user-list-item.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent] // 2. Add the component in the boostrap
